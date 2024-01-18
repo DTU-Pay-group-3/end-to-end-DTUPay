@@ -1,0 +1,80 @@
+package behaviourtests.customer;
+
+import behaviourtests.model.DTUPayAccount;
+import dtu.ws.fastmoney.BankService;
+import dtu.ws.fastmoney.BankServiceException_Exception;
+import dtu.ws.fastmoney.BankServiceService;
+import dtu.ws.fastmoney.User;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.After;
+import org.junit.Before;
+
+import java.math.BigDecimal;
+import java.util.concurrent.CompletableFuture;
+import static org.junit.Assert.assertNotNull;
+
+public class CustomerSteps {
+
+    CustomerService service = new CustomerService();
+    private DTUPayAccount customer;
+    private CompletableFuture<DTUPayAccount> result = new CompletableFuture<DTUPayAccount>();
+    private CompletableFuture<String[]> result2 = new CompletableFuture<String[]>();
+    private BankService bank = new BankServiceService().getBankServicePort();
+    private String bankaccID;
+
+    @Before
+    public void registerbankaccount(){
+        User u = new User();
+        u.setFirstName("Gandra");
+        u.setLastName("Mandra");
+        u.setCprNumber("123456790");
+        try {
+            bankaccID=bank.createAccountWithBalance(u, BigDecimal.valueOf(500));
+        }catch(Exception e){
+
+        }
+    }
+
+    @Given("an unregistered customer with empty id")
+    public void anUnregisteredCustomerWithEmptyId() {
+        customer = new DTUPayAccount();
+        customer.setAccountNumber(bankaccID);
+        customer.setFirstName("Lola");
+        customer.setLastName("Szymanska");
+        customer.setCprNumber("76587653");
+
+    }
+
+    @When("the customer is being registered")
+    public void theCustomerIsBeingRegistered() {
+        result.complete(service.register(customer));
+    }
+
+    @Then("the customer is registered")
+    public void theCustomerIsRegistered() {
+
+    }
+
+    @And("has a non empty id")
+    public void hasANonEmptyId() {
+        assertNotNull(result.join().getId());
+    }
+
+    @When("The Customer requests the Tokens")
+    public void theCustomerRequestsTheTokens() {
+        result2.complete(service.generateTokens(customer));
+    }
+
+    @Then("Customers receives the tokens")
+    public void customersReceivesTheTokens() {
+        assertNotNull(result2.join());
+    }
+
+    @After
+    public void retireAllAcc() throws BankServiceException_Exception {
+        bank.retireAccount(customer.getAccountNumber());
+    }
+}
