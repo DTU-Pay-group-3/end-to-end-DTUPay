@@ -7,10 +7,10 @@ import javax.ws.rs.client.WebTarget;
 
 public class MerchantService {
 
-	public Merchant register(Merchant c) {
+	public DTUPayAccount register(DTUPayAccount acc) {
 		Client client = ClientBuilder.newClient();
-		WebTarget r = client.target("http://localhost:8080/");
-		var response = r.path("merchant").request().post(Entity.json(c), Merchant.class);
+		WebTarget r = client.target("http://localhost:8080/merchant");
+		var response = r.path("/register").request().post(Entity.json(acc), DTUPayAccount.class);
 		return response;
 	}
 }

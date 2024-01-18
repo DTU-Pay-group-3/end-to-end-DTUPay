@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 public class MerchantSteps {
     MerchantService service = new MerchantService();
-    Merchant merchant;
+    DTUPayAccount merchantAccount;
 
     @Given("a merchant with a bank account")
     public void aMerchantWithABankAccount() {
@@ -19,13 +19,13 @@ public class MerchantSteps {
 
     @When("the merchant is being registered")
     public void theMerchantIsBeingRegistered() {
-        merchant= service.register(new Merchant("ASDF",222));
+        merchantAccount = service.register(new DTUPayAccount("Bob", "Bname", "3322119999", "54321"));
     }
 
     @Then("the merchant is registered")
     public void theMerchantIsRegistered() {
-        assertTrue(merchant.getId().equals("123"));
-        assertNotNull(merchant);
+        assertTrue(merchantAccount.getId().equals("123"));
+        assertNotNull(merchantAccount);
     }
 
     @And("has a non empty")
