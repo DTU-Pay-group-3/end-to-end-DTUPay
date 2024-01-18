@@ -1,6 +1,8 @@
 package behaviourtests.merchant;
 
 
+import behaviourtests.model.DTUPayAccount;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
