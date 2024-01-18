@@ -15,12 +15,11 @@ public class MerchantSteps {
 
     @Given("a merchant with a bank account")
     public void aMerchantWithABankAccount() {
-
+        merchantAccount = new DTUPayAccount("Bob", "Bname", "3322119999", "54321");
     }
 
     @When("the merchant is being registered")
     public void theMerchantIsBeingRegistered() {
-        merchantAccount = new DTUPayAccount("Bob", "Bname", "3322119999", "54321");
         responseAccount = service.register(merchantAccount);
     }
 
@@ -31,6 +30,6 @@ public class MerchantSteps {
 
     @And("the merchant has a non empty id")
     public void theMerchantHasANonEmptyId() {
-        Assert.assertFalse(responseAccount.getId().isBlank());
+        assertFalse(responseAccount.getId().isBlank());
     }
 }
