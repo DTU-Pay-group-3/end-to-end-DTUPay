@@ -5,8 +5,8 @@ services:
     container_name: rabbitMq_container
     
   facade-service:
-    image: student-registration 
-    container_name: student-registration 
+    image: facade-service
+    container_name: facade-service
     ports:
      - "8080:8080"
     
