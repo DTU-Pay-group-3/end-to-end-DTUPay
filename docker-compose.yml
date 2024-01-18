@@ -1,0 +1,43 @@
+version: '3'
+services:
+  rabbitMq:
+    image: rabbitmq
+    container_name: rabbitMq_container
+    
+  facade-service:
+    image: student-registration 
+    container_name: student-registration 
+    ports:
+     - "8080:8080"
+    
+  account-service:
+    build: AccountManagement
+    image: account-service
+    container_name: account-service
+    restart: on-failure
+    depends_on:
+      - rabbitMq
+
+  payment-service:
+    build: PaymentService
+    image: payment-service
+    container_name: payment-service
+    restart: on-failure
+    depends_on:
+      - rabbitMq
+
+  token-service:
+    build: TokenMicroservice
+    image: token-service
+    container_name: token-service
+    restart: on-failure
+    depends_on:
+      - rabbitMq
+
+  report-service:
+    build: ReportService
+    image: report-service
+    container_name: report-service
+    restart: on-failure
+    depends_on:
+      - rabbitMq

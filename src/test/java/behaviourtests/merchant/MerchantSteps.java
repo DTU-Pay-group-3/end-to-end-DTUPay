@@ -1,0 +1,34 @@
+package behaviourtests.merchant;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+public class MerchantSteps {
+    MerchantService service = new MerchantService();
+    Merchant merchant;
+
+    @Given("a merchant with a bank account")
+    public void aMerchantWithABankAccount() {
+
+    }
+
+    @When("the merchant is being registered")
+    public void theMerchantIsBeingRegistered() {
+        merchant= service.register(new Merchant("ASDF",222));
+    }
+
+    @Then("the merchant is registered")
+    public void theMerchantIsRegistered() {
+        assertTrue(merchant.getId().equals("123"));
+        assertNotNull(merchant);
+    }
+
+    @And("has a non empty")
+    public void hasANonEmpty() {
+    }
+}
