@@ -58,8 +58,8 @@ public class CustomerSteps {
 
     }
 
-    @And("has a non empty id")
-    public void hasANonEmptyId() {
+    @And("the customer has a non empty id")
+    public void theCustomerHasANonEmptyId() {
         assertNotNull(result.join().getId());
     }
 

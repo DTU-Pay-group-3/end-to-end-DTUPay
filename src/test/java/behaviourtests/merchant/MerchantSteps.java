@@ -29,8 +29,8 @@ public class MerchantSteps {
         assertEquals(merchantAccount, responseAccount);
     }
 
-    @And("has a non empty id")
-    public void hasANonEmptyId() {
+    @And("the merchant has a non empty id")
+    public void theMerchantHasANonEmptyId() {
         Assert.assertFalse(responseAccount.getId().isBlank());
     }
 }
