@@ -22,7 +22,7 @@ public class CustomerSteps {
     private DTUPayAccount customer;
     private CompletableFuture<DTUPayAccount> result = new CompletableFuture<DTUPayAccount>();
     private CompletableFuture<String[]> result2 = new CompletableFuture<String[]>();
-    private BankService bank = new BankServiceService().getBankServicePort();
+    //private BankService bank = new BankServiceService().getBankServicePort();
     private String bankAccId;
 
     @Before
