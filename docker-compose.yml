@@ -31,9 +31,9 @@ services:
     depends_on:
       - rabbitMq
 
-  report-service:
-    image: report-service
-    container_name: report-service
+  reporting-service:
+    image: reporting-service
+    container_name: reporting-service
     restart: on-failure
     depends_on:
       - rabbitMq
