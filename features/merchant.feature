@@ -4,4 +4,4 @@ Feature: Merchant feature
   	Given a merchant with a bank account
   	When the merchant is being registered
   	Then the merchant is registered
-  	And has a non empty id
+  	And the merchant has a non empty id
