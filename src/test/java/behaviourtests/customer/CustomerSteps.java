@@ -23,16 +23,16 @@ public class CustomerSteps {
     private CompletableFuture<DTUPayAccount> result = new CompletableFuture<DTUPayAccount>();
     private CompletableFuture<String[]> result2 = new CompletableFuture<String[]>();
     private BankService bank = new BankServiceService().getBankServicePort();
-    private String bankaccID;
+    private String bankAccId;
 
     @Before
-    public void registerbankaccount(){
+    public void registerBankAccount(){
         User u = new User();
         u.setFirstName("Gandra");
         u.setLastName("Mandra");
         u.setCprNumber("123456790");
         try {
-            bankaccID=bank.createAccountWithBalance(u, BigDecimal.valueOf(500));
+            bankAccId =bank.createAccountWithBalance(u, BigDecimal.valueOf(500));
         }catch(Exception e){
 
         }
@@ -41,21 +41,15 @@ public class CustomerSteps {
     @Given("an unregistered customer with empty id")
     public void anUnregisteredCustomerWithEmptyId() {
         customer = new DTUPayAccount();
-        customer.setAccountNumber(bankaccID);
-        customer.setFirstName("Lola");
-        customer.setLastName("Szymanska");
-        customer.setCprNumber("76587653");
-
+        customer.setAccountNumber(bankAccId);
+        customer.setFirstName("Gandra");
+        customer.setLastName("Mandra");
+        customer.setCprNumber("1234567890");
     }
 
-    @When("the customer is being registered")
+    @Then("the customer is being registered")
     public void theCustomerIsBeingRegistered() {
         result.complete(service.register(customer));
-    }
-
-    @Then("the customer is registered")
-    public void theCustomerIsRegistered() {
-
     }
 
     @And("the customer has a non empty id")
