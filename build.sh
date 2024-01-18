@@ -3,27 +3,27 @@ set -e
 
 CMD cd ..
 
-pushd messaging-utilities-3.4
+pushd Messaging-utilities
 ./build.sh
 popd
 
 # Build the services
-pushd token
+pushd Token-Service
 ./build.sh
 popd
 
-pushd account
+pushd Account-service
 ./build.sh
 popd
 
-pushd payment
+pushd Payment-service
 ./build.sh
 popd
 
-pushd report
+pushd Reporting-service
 ./build.sh
 popd
 
-pushd facade
+pushd Facade
 ./build.sh
 popd
