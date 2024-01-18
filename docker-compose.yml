@@ -1,7 +1,7 @@
 version: '3'
 services:
   rabbitMq:
-    image: rabbitMq
+    image: rabbitmq
     container_name: rabbitMq_container
     
   facade-service:
