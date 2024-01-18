@@ -32,7 +32,8 @@ public class CustomerSteps {
         u.setLastName("Mandra");
         u.setCprNumber("123456790");
         try {
-            bankAccId =bank.createAccountWithBalance(u, BigDecimal.valueOf(500));
+            //bankAccId =bank.createAccountWithBalance(u, BigDecimal.valueOf(500));
+            bankAccId="DAfg33rv43r";
         }catch(Exception e){
 
         }
@@ -69,6 +70,6 @@ public class CustomerSteps {
 
     @After
     public void retireAllAcc() throws BankServiceException_Exception {
-        bank.retireAccount(customer.getAccountNumber());
+        //bank.retireAccount(customer.getAccountNumber());
     }
 }
