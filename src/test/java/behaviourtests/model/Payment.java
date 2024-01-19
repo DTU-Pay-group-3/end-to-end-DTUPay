@@ -1,14 +1,11 @@
 package behaviourtests.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Setter;
-import lombok.Value;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 @AllArgsConstructor
-@Value
+@NoArgsConstructor
 @Data
 @Setter
 public class Payment {
