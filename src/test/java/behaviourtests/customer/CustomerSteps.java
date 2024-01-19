@@ -13,13 +13,14 @@ import org.junit.After;
 import java.util.concurrent.CompletableFuture;
 import static org.junit.Assert.assertNotNull;
 
+
+/*Author Sandra s233484*/
 public class CustomerSteps {
 
     CustomerService service = new CustomerService();
     private DTUPayAccount customer;
     private CompletableFuture<DTUPayAccount> result = new CompletableFuture<DTUPayAccount>();
     private CompletableFuture<String[]> result2 = new CompletableFuture<String[]>();
-    //private BankService bank = new BankServiceService().getBankServicePort();
     private String bankAccId;
 
     @Before
@@ -29,7 +30,6 @@ public class CustomerSteps {
         u.setLastName("Mandra");
         u.setCprNumber("123456790");
         try {
-            //bankAccId =bank.createAccountWithBalance(u, BigDecimal.valueOf(500));
             this.bankAccId="DAfg33rv43r";
         }catch(Exception e){
 
@@ -67,8 +67,4 @@ public class CustomerSteps {
         assertNotNull(result2.join());
     }
 
-    @After
-    public void retireAllAcc() throws BankServiceException_Exception {
-        //bank.retireAccount(customer.getAccountNumber());
-    }
 }
