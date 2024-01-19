@@ -1,7 +1,6 @@
 package behaviourtests.payment;
 
 import behaviourtests.customer.CustomerService;
-import behaviourtests.customer.CustomerSteps;
 import behaviourtests.merchant.MerchantService;
 import behaviourtests.model.DTUPayAccount;
 import behaviourtests.model.Payment;
@@ -46,19 +45,19 @@ public class PaymentSteps {
 
     @Before
     public void SetupAccounts() {
-        customer.setFirstName("NewUniqueFName");
-        customer.setLastName("NewUniqueLName");
-        customer.setCprNumber("10101010221211");
+        customer.setFirstName("NewUniqueFNameasdfsa");
+        customer.setLastName("NewUniqueLNamesadasfsa");
+        customer.setCprNumber("101112311");
 
-        merchant.setFirstName("NewUniqueFNameMerch");
-        merchant.setLastName("NewUniqueLNameMerch");
-        merchant.setCprNumber("101010102212112312");
+        merchant.setFirstName("NewUniqueFNameMercasdash");
+        merchant.setLastName("NewUniqueLNameMeasdasrch");
+        merchant.setCprNumber("101010102112312");
 
         try {
             customerBankID = bank.createAccountWithBalance(customer, BigDecimal.valueOf(500));
-            userCustomer= new DTUPayAccount("NewUniqueFName","NewUniqueLName","10101010221211",customerBankID);
+            userCustomer= new DTUPayAccount(customer.getFirstName(),customer.getLastName(),customer.getCprNumber(),customerBankID);
             merchantBankID = bank.createAccountWithBalance(merchant, BigDecimal.valueOf(500));
-            userMerchant= new DTUPayAccount("NewUniqueFNameMerch","NewUniqueLNameMerch","101010102212112312",merchantBankID);
+            userMerchant= new DTUPayAccount(merchant.getFirstName(),merchant.getLastName(),merchant.getCprNumber(),merchantBankID);
         } catch (Exception e) {
             System.out.println("USER EXIST");
         }
