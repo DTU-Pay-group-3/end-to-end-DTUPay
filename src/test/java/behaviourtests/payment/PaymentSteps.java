@@ -22,7 +22,7 @@ import java.util.concurrent.CompletableFuture;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-/*Author Sandra s233484*/
+/*Author Marian s233481*/
 public class PaymentSteps {
 
     PaymentService service = new PaymentService();
