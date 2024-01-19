@@ -1,15 +1,13 @@
 package behaviourtests.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Objects;
 import java.util.UUID;
 
 @Data
 @Getter
+@Setter
 @NoArgsConstructor
 public class DTUPayAccount {
 
