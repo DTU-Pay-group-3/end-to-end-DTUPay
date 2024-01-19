@@ -9,10 +9,10 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 public class MerchantService {
-
+	private Entity<DTUPayAccount> e;
 	public DTUPayAccount register(DTUPayAccount acc) {
 		Client client = ClientBuilder.newClient();
-		WebTarget r = client.target("http://localhost:8080/merchant");
+		WebTarget r = client.target("http://fm-03.compute.dtu.dk:8080/merchant");
 		Response response = r.path("/register")
 				.request()
 				.post(Entity.entity(acc, MediaType.APPLICATION_JSON));
