@@ -6,6 +6,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 
 public class CustomerService {
 
@@ -14,7 +15,7 @@ public class CustomerService {
 		WebTarget r = client.target("http://localhost:8080/");
 		var response = r.path("customers")
 				.request()
-				.post(Entity.entity(c, APPLICATION_JSON));
+				.post(Entity.entity(c, MediaType.APPLICATION_JSON));
 		return response.readEntity(DTUPayAccount.class);
 	}
 
