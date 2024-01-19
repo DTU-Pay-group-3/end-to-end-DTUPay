@@ -15,11 +15,10 @@ public class DTUPayAccount {
     private String cprNumber;
     private String accountNumber;
 
-    public DTUPayAccount() {
-    }
+    public DTUPayAccount(){}
 
     public DTUPayAccount(String firstName, String lastName, String cprNumber, String accountNumber) {
-        this.id = UUID.randomUUID().toString();
+        this.id = "";
         this.firstName = firstName;
         this.lastName = lastName;
         this.cprNumber = cprNumber;
