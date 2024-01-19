@@ -8,11 +8,10 @@ import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 
 public class MerchantService {
-	private Entity<DTUPayAccount> e;
 	public DTUPayAccount register(DTUPayAccount acc) {
 		Client client = ClientBuilder.newClient();
-		WebTarget r = client.target("http://localhost:8080/merchant");
-		var response = r.path("/register").request().post(Entity.entity(acc, MediaType.APPLICATION_JSON), DTUPayAccount.class);
+		WebTarget r = client.target("http://localhost:8080/merchant/");
+		var response = r.path("register").request().post(Entity.entity(acc, MediaType.APPLICATION_JSON), DTUPayAccount.class);
 		return response;
 	}
 }

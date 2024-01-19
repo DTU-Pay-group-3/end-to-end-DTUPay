@@ -48,7 +48,8 @@ public class CustomerSteps {
 
     @Then("the customer is being registered")
     public void theCustomerIsBeingRegistered() {
-        result.complete(service.register(customer));
+        customer = service.register(customer);
+        result.complete(customer);
     }
 
     @And("the customer has a non empty id")

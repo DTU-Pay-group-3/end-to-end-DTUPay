@@ -19,8 +19,8 @@ public class CustomerService {
 
 	public String[] generateTokens(DTUPayAccount c) {
 		Client client = ClientBuilder.newClient();
-		WebTarget r = client.target("http://localhost:8080/customer/");
-		var response = r.path("tokens").request().post(Entity.entity(c, MediaType.APPLICATION_JSON), String[].class);
+		WebTarget r = client.target("http://localhost:8080/customers/");
+		var response = r.path("tokens").request().post(Entity.entity(c.getId(), MediaType.APPLICATION_JSON), String[].class);
 		return response;
 	}
 }
