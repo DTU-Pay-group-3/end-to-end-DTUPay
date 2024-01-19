@@ -5,12 +5,13 @@ import dtu.ws.fastmoney.BankService;
 import dtu.ws.fastmoney.BankServiceException_Exception;
 import dtu.ws.fastmoney.BankServiceService;
 import dtu.ws.fastmoney.User;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.After;
-import org.junit.Before;
 
 import java.math.BigDecimal;
 import java.util.concurrent.CompletableFuture;
@@ -33,7 +34,7 @@ public class CustomerSteps {
         u.setCprNumber("123456790");
         try {
             //bankAccId =bank.createAccountWithBalance(u, BigDecimal.valueOf(500));
-            bankAccId="DAfg33rv43r";
+            this.bankAccId="DAfg33rv43r";
         }catch(Exception e){
 
         }
@@ -42,6 +43,7 @@ public class CustomerSteps {
     @Given("an unregistered customer with empty id")
     public void anUnregisteredCustomerWithEmptyId() {
         customer = new DTUPayAccount();
+        customer.setId("");
         customer.setAccountNumber(bankAccId);
         customer.setFirstName("Gandra");
         customer.setLastName("Mandra");
