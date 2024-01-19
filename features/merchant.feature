@@ -1,5 +1,5 @@
 Feature: Merchant feature
-
+#Author: Caroline
   Scenario: Merchant Registration
   	Given a merchant with a bank account
   	When the merchant is being registered

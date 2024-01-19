@@ -1,14 +1,12 @@
 package behaviourtests.customer;
 
 import behaviourtests.model.DTUPayAccount;
-import dtu.ws.fastmoney.BankServiceException_Exception;
 import dtu.ws.fastmoney.User;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.After;
 
 import java.util.concurrent.CompletableFuture;
 import static org.junit.Assert.assertNotNull;

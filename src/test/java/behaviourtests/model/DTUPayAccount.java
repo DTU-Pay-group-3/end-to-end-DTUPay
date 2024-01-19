@@ -6,6 +6,7 @@ import lombok.Setter;
 import java.util.Objects;
 import java.util.UUID;
 
+//@Author Andreas
 @Setter
 @Getter
 public class DTUPayAccount {

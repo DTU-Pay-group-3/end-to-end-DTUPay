@@ -1,5 +1,5 @@
 Feature: Customer
-
+#Author: Sandra
 	Scenario: Customer Registration
 		Given an unregistered customer with empty id
 		Then the customer is being registered

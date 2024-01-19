@@ -7,6 +7,7 @@ import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 
+//@Author Caroline
 public class MerchantService {
 	public DTUPayAccount register(DTUPayAccount acc) {
 		Client client = ClientBuilder.newClient();
