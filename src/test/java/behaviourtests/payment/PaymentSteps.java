@@ -46,19 +46,19 @@ public class PaymentSteps {
 
     @Before
     public void SetupAccounts() {
-        customer.setFirstName("VeryCoolFName1");
-        customer.setLastName("VeryCoolLName1");
-        customer.setCprNumber("10101101101011");
+        customer.setFirstName("NewUniqueFName");
+        customer.setLastName("NewUniqueLName");
+        customer.setCprNumber("10101010221211");
 
-        merchant.setFirstName("VeryCoolFName31");
-        merchant.setLastName("VeryCoolLName31");
-        merchant.setCprNumber("0010111010110111");
+        merchant.setFirstName("NewUniqueFNameMerch");
+        merchant.setLastName("NewUniqueLNameMerch");
+        merchant.setCprNumber("101010102212112312");
 
         try {
             customerBankID = bank.createAccountWithBalance(customer, BigDecimal.valueOf(500));
-            userCustomer= new DTUPayAccount("VeryCoolFName1","VeryCoolLName1","10101101101011",customerBankID);
+            userCustomer= new DTUPayAccount("NewUniqueFName","NewUniqueLName","10101010221211",customerBankID);
             merchantBankID = bank.createAccountWithBalance(merchant, BigDecimal.valueOf(500));
-            userMerchant= new DTUPayAccount("VeryCoolFName31","VeryCoolLName31","0010111010110111",merchantBankID);
+            userMerchant= new DTUPayAccount("NewUniqueFNameMerch","NewUniqueLNameMerch","101010102212112312",merchantBankID);
         } catch (Exception e) {
             System.out.println("USER EXIST");
         }
