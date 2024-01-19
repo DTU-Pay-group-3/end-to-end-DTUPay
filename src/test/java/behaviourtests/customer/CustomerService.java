@@ -12,7 +12,7 @@ public class CustomerService {
 
 	public DTUPayAccount register(DTUPayAccount c) {
 		Client client = ClientBuilder.newClient();
-		WebTarget r = client.target("http://fm-03.compute.dtu.dk:8080/");
+		WebTarget r = client.target("http://localhost:8080/");
 		var response = r.path("customers")
 				.request()
 				.post(Entity.entity(c, APPLICATION_JSON));
