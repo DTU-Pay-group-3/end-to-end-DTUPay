@@ -43,25 +43,25 @@ public class PaymentSteps {
     private BankService bank = new BankServiceService().getBankServicePort();
 
 
-    @Before
-    public void SetupAccounts() {
-        customer.setFirstName("NewUniqueFNameasdfsa");
-        customer.setLastName("NewUniqueLNamesadasfsa");
-        customer.setCprNumber("101112311");
-
-        merchant.setFirstName("NewUniqueFNameMercasdash");
-        merchant.setLastName("NewUniqueLNameMeasdasrch");
-        merchant.setCprNumber("101010102112312");
-
-        try {
-            customerBankID = bank.createAccountWithBalance(customer, BigDecimal.valueOf(500));
-            userCustomer= new DTUPayAccount(customer.getFirstName(),customer.getLastName(),customer.getCprNumber(),customerBankID);
-            merchantBankID = bank.createAccountWithBalance(merchant, BigDecimal.valueOf(500));
-            userMerchant= new DTUPayAccount(merchant.getFirstName(),merchant.getLastName(),merchant.getCprNumber(),merchantBankID);
-        } catch (Exception e) {
-            System.out.println("USER EXIST");
-        }
-    }
+//    @Before
+//    public void SetupAccounts() {
+//        customer.setFirstName("NewUniqueFNameasd23fsa");
+//        customer.setLastName("NewUniqueLNamesad23asfsa");
+//        customer.setCprNumber("10111231111");
+//
+//        merchant.setFirstName("NewUniqueFNameMe32rcasdash");
+//        merchant.setLastName("NewUniqueLNameMe32asdasrch");
+//        merchant.setCprNumber("10101010211211312");
+//
+//        try {
+//            customerBankID = bank.createAccountWithBalance(customer, BigDecimal.valueOf(500));
+//            userCustomer= new DTUPayAccount(customer.getFirstName(),customer.getLastName(),customer.getCprNumber(),customerBankID);
+//            merchantBankID = bank.createAccountWithBalance(merchant, BigDecimal.valueOf(500));
+//            userMerchant= new DTUPayAccount(merchant.getFirstName(),merchant.getLastName(),merchant.getCprNumber(),merchantBankID);
+//        } catch (Exception e) {
+//            System.out.println("USER EXIST");
+//        }
+//    }
 
     @Given("A registered merchant and customer")
     public void aRegisteredMerchantAndCustomer() {
@@ -95,13 +95,13 @@ public class PaymentSteps {
         assertEquals(result.join(), payment.getPaymentId()+" Completed Successfully");
     }
 
-    @After
-    public void Clean() throws BankServiceException_Exception {
-        //It is probably not necessary to check the balance since the PaymentComplete event was published
-        System.out.println(bank.getAccount(customerBankID).getBalance() + " Cust1 balance");
-        System.out.println(bank.getAccount(merchantBankID).getBalance() + " Merchant balance");
-
-        bank.retireAccount(customerBankID);
-        bank.retireAccount(merchantBankID);
-    }
+//    @After
+//    public void Clean() throws BankServiceException_Exception {
+//        //It is probably not necessary to check the balance since the PaymentComplete event was published
+//        System.out.println(bank.getAccount(customerBankID).getBalance() + " Cust1 balance");
+//        System.out.println(bank.getAccount(merchantBankID).getBalance() + " Merchant balance");
+//
+//        bank.retireAccount(customerBankID);
+//        bank.retireAccount(merchantBankID);
+//    }
 }
